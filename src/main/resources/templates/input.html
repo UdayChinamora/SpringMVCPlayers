@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert New or Edit Player</title>
+
+
+<style>
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.column img {
+  margin-top: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
+  }
+</style>
+</head>
+<body>
+
+<div >
+  <img src="https://images.pexels.com/photos/260606/pexels-photo-260606.jpeg?auto=compress&cs=tinysrgb&w=400" style="width:20%">
+  <img src="https://images.pexels.com/photos/2116469/pexels-photo-2116469.jpeg?auto=compress&cs=tinysrgb&w=400" style="width:20%">
+  <img src="
+https://images.pexels.com/photos/159603/softball-girls-softball-action-high-school-159603.jpeg?auto=compress&cs=tinysrgb&w=400
+" style="width:20%">
+  <img src="https://images.pexels.com/photos/163526/field-hockey-player-girls-game-163526.jpeg?auto=compress&cs=tinysrgb&w=400" style="width:30%">
+  
+ </div><br>
+<form th:object="${newPlayer}" th:action="@{/update/{id}(id=${newPlayer.id})}" method=POST>
+
+Name: <input name="name" size="20" th:field="*{name}"><br />
+Position: <input name="position" size="20" th:field="*{position}"><br />
+Sport : <input name="sport" size="20" th:field="*{sport}"><br />
+Team Name: <input name="team .team_name" size="20" th:field="*{team.team_name}"><br />
+City: <input name="team.city" size="20" th:field="*{team.city}"><br />
+State /Country: <input name="team.state" size="20" th:field="*{team.state}"><br />
+
+<input name="Submit" type="submit" value="submit" />
+</form>
+<br>
+<a href="../viewAll">View All Players</a>
+
+<br>
+<footer>
+ <p>Author: Uday Chinhamora>
+  <a href="mailto:uchinhamora@outlook.com">uchinhamora@outlook.com</a></p>
+
+</footer>
+
+</body>
+</html>

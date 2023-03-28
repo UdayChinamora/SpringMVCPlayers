@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Players</title>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th:nth-child(even),td:nth-child(even) {
+  background-color: #D6EEEE;
+}
+
+
+
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.column img {
+  margin-top: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
+  }
+
+</style>
+
+</head>
+<body>
+
+
+<div >
+<h1> Sports Players</h1>
+  <img src="https://images.pexels.com/photos/260606/pexels-photo-260606.jpeg?auto=compress&cs=tinysrgb&w=400" style="width:20%">
+  <img src="https://images.pexels.com/photos/2116469/pexels-photo-2116469.jpeg?auto=compress&cs=tinysrgb&w=400" style="width:20%">
+  <img src="
+https://images.pexels.com/photos/159603/softball-girls-softball-action-high-school-159603.jpeg?auto=compress&cs=tinysrgb&w=400
+" style="width:20%">
+  <img src="https://images.pexels.com/photos/163526/field-hockey-player-girls-game-163526.jpeg?auto=compress&cs=tinysrgb&w=400" style="width:30%">
+  
+ </div><br><br>
+<form>
+<table style="width:100%">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+   <th>Sport</th>
+    <th>Position</th>
+    <th>Team Name</th>
+    <th>City</th>
+    <th>State/Country</th>
+    
+  </tr>
+<tr th:each="currentPlayer: ${players}">
+	<td th:text="${currentPlayer.id}" ></td>
+	<td th:text="${currentPlayer.name}" ></td>
+	<td th:text="${currentPlayer.sport}" ></td>
+	<td th:text="${currentPlayer.position}" ></td>
+	<td th:text="${currentPlayer.team.team_name}" ></td>
+	<td th:text="${currentPlayer.team.city}" ></td>
+	<td th:text="${currentPlayer.team.state}" ></td>
+	<td><a th:href="@{/edit/{id}(id=${currentPlayer.id})}">Edit</a></td>
+	<td><a th:href="@{/delete/{id}(id=${currentPlayer.id})}">Delete</a></td>
+	</tr>
+</table>
+</form>
+<br>
+<a href="../inputPlayer">Add a new player</a>
+<br>
+<footer>
+ <p>Author: Uday Chinhamora>
+  <a href="mailto:uchinhamora@outlook.com">uchinhamora@outlook.com</a></p>
+
+</footer>
+</body>
+</html>
